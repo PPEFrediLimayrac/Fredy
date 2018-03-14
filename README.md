@@ -29,4 +29,8 @@ Nous considérons qu'un utilisateur inscrit est automatiquement un demandeur. Po
 
 
 <h2> Ajouter adhérents </h2>
-Pour ajouter un adhérent vous allez devoir renseigner plusieurs champs, avec notemment l'id du club de votre adhérent. Etant donné que vous ne pouvez pas connaître de tête les ID de chaque club, un tableau est présent en bas de la page d'ajout des adhérents, affichant les clubs disponnibles avec leur ID, vous pouvez vous y référer.
+Pour ajouter un adhérent vous allez devoir renseigner plusieurs champs, avec notemment l'id du club de votre adhérent. Etant donné que vous ne pouvez pas connaître de tête les ID de chaque club, un tableau est présent en bas de la page d'ajout des adhérents, affichant les clubs disponnibles avec leur ID, vous pouvez vous y référer. 
+
+
+<h2> Ajouter des clubs </h2>
+Il n'existe pas d'interface permettant d'ajouter un club par le biais du site web. Si vous souhaitez rajouter / modifier / supprimer des clubs, vous devez aller directement sur la base de donnée et modifier la table "club". 

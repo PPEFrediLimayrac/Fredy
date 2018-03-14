@@ -29,4 +29,4 @@ Nous considérons qu'un utilisateur inscrit est automatiquement un demandeur. Po
 
 
 <h2> Ajouter adhérents </h2>
-Pour ajouter un adhérent vous allez devoir renseigner plusieurs champs, avec notemment l'id du club de votre adhérent. Etant donné que 
+Pour ajouter un adhérent vous allez devoir renseigner plusieurs champs, avec notemment l'id du club de votre adhérent. Etant donné que vous ne pouvez pas connaître de tête les ID de chaque club, un tableau est présent en bas de la page d'ajout des adhérents, affichant les clubs disponnibles avec leur ID, vous pouvez vous y référer.

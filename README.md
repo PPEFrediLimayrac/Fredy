@@ -34,3 +34,8 @@ Pour ajouter un adhérent vous allez devoir renseigner plusieurs champs, avec no
 
 <h2> Ajouter des clubs </h2>
 Il n'existe pas d'interface permettant d'ajouter un club par le biais du site web. Si vous souhaitez rajouter / modifier / supprimer des clubs, vous devez aller directement sur la base de donnée et modifier la table "club". 
+
+
+<h2> Modifier le tarif kilométrique </h2>
+A chaque année est associée un tarif kilométrique. Lorsque vous souhaitez changer ce tarif kilométrique vous serrez invités à modifier cette valeur directement dans la base de données en INSERANT une nouvelle ligne dans la table, afin de garder une trace de chaque tarif kilométrique.
+

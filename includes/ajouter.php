@@ -1,3 +1,4 @@
+
 <?php
 
 session_start();
@@ -35,10 +36,12 @@ $idlignefrais = $object->insert($datelignefrais ,$trajet_frais, $km_frais , $cou
 $h = $idlignefrais['LAST_INSERT_ID()'];
 $object->insertAvancer($h, $idBordereau, $pseudo );
 
+
  header('Location: ../Bordereau.php?annee='.$annee.'');
 }
 
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -73,20 +76,17 @@ $object->insertAvancer($h, $idBordereau, $pseudo );
       <div class="form_Ins_Un">
         
       	<form method='post' action='ajouter.php'><br/>
-      		<table>
-				<tr><td>Date</td><td><input type='date' name='datelignefrais' placeholder='datelignefrais'><br/></td></tr>
-				<tr><td>Frais trajet</td><td><input type='text' name='trajet_frais' placeholder='trajet_frais'><br/></td></tr>
-				<tr><td>Frais kilometrique</td><td><input type='text' name='km_frais' placeholder='km_frais'><br/></td></tr>
-				<tr><td>Couts trajet</td><td><input type='text' name='cout_trajet' placeholder='cout_trajet'><br/></td></tr>
-				<tr><td>Cout péage</td><td><input type='text' name='cout_peage' placeholder='cout_peage'><br/></td></tr>
-				<tr><td>Cout hébergement</td><td><input type='text' name='cout_hebergement' placeholder='cout_hebergement'><br/></td></tr>
-				<tr><td>Cout repas</td><td><input type='text' name='cout_repas' placeholder='cout_repas'><br/></td></tr>
-			</table>
-				<input type='hidden' name ='idBordereau' value='".$idBordereau."'>
-				<input type='hidden' name ='annee' value='".$annee."'>
-				<input type='submit' name='submit' value='Envoyer le formulaire'>
-			
-		</form>
+<input type='date' name='datelignefrais' placeholder='datelignefrais'><br/>
+<input type='text' name='trajet_frais' placeholder='libelle trajet'><br/>
+<input type='text' name='km_frais' placeholder='km parcourus'><br/>
+<input type='text' name='cout_trajet' placeholder='cout_trajet'><br/>
+<input type='text' name='cout_peage' placeholder='cout_peage'><br/>
+<input type='text' name='cout_hebergement' placeholder='cout_hebergement'><br/>
+<input type='text' name='cout_repas' placeholder='cout_repas'><br/>
+<input type='hidden' name ='idBordereau' value=<?php echo $idBordereau; ?>>
+<input type='hidden' name ='annee' value=<?php echo $annee;?>>
+<input type='submit' name='submit' value='Envoyer le formulaire'>
+</form>
 
       <div class="clr"></div>
     </div> 

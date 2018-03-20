@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	include_once "adherent.php";
+	   include_once('Club.php');
 
 	$id_adherent=isset($_POST['id_adherent']) ? $_POST['id_adherent'] : '';
 	$licence_adherent=isset($_POST['licence_adherent']) ? $_POST['licence_adherent'] : '';
@@ -12,12 +13,12 @@
 	$cp_adherent=isset($_POST['cp_adherent']) ? $_POST['cp_adherent'] : '';
 	$rue_adherent=isset($_POST['rue_adherent']) ? $_POST['rue_adherent'] : '';
 	$sexe_adherent=isset($_POST['sexe_adherent']) ? $_POST['sexe_adherent'] : '';
-
+	$ji = $_GET['ji'];
 	$pseudo = $_SESSION['pseudo_demandeur'];
 	if(empty($id_adherent)){
 		$id_adherent = $_GET['id_adherent'];
 	}
-	echo $id_adherent;
+
 	$object = new adherent();
 	$object = $object->findByID($id_adherent);
 	$submit = isset($_POST['submit']);
@@ -52,6 +53,8 @@
     <div class="hbg_resize"> 
     	<div class="form_Ins_Un">
 <?php
+$clubs = new club();
+    $rows2 = $clubs->findAll();
 
 	echo "<form method='post' action='ModifierAdh.php' style='position: center;'><br/>
 		<table>
@@ -59,11 +62,41 @@
 			<tr><td>Nom</td><td><input type='nom_adherent' name='nom_adherent' placeholder='nom_adherent' value=".$object->get_nom_adherent()."></td></tr>
 			<tr><td>Prenom </td><td><input type='prenom_adherent' name='prenom_adherent' placeholder='prenom_adherent' value=".$object->get_prenom_adherent()."></td></tr>
 			
-			<tr><td>Date naissance</td><td><input type='date_naissance' name='date_naissance' placeholder='date_naissance' value=".$object->get_date_naissance()."><br/>
+<tr><td><label for='club'>club</label><br /></td>
+          <td>  <select name='nom_club' id='nom_club' required>";
+          foreach ($rows2 as $club) {
+             if($club->get_nom_club()==$ji){
+              echo ' <option selected value='.$club->get_nom_club().'>'.$club->get_nom_club().'</option>';
+            }
+         
+			else   {
+				 echo ' <option value='.$club->get_nom_club().'>'.$club->get_nom_club().'</option>';
+			}  }       
+               echo "</select></td></tr>
+
+
+			<tr><td>
+			  Date de naissance</td><td><input type='date' name='date_naissance' placeholder='date_naissance' value=".$object->get_date_naissance()."></td></tr>
+
+
+			
 			<tr><td>Rue</td><td><input type='rue_adherent' name='rue_adherent' placeholder='rue_adherent' value=".$object->get_rue_adherent()."></td></tr>
 			<tr><td>CP </td><td><input type='cp_adherent' name='cp_adherent' placeholder='cp_adherent' value=".$object->get_cp_adherent()."></td></tr>
 			<tr><td>Ville</td><td><input type='ville_adherent' name='ville_adherent' placeholder='ville_adherent' value=".$object->get_ville_adherent()."></td></tr>
-			<tr><td>Sexe</td><td><input type='sexe_adherent' name='sexe_adherent' placeholder='sexe_adherent' value=".$object->get_sexe_adherent()."></td></tr>
+
+			<tr><td><label for='sexe_adherent'>sexe  adherent</label><br /></td>
+          <td>  <select name='sexe_adherent' id='sexe_adherent' required>";
+          if ($object->get_sexe_adherent()== "Homme"){
+				echo "<option selected value='Homme'>Homme</option>
+               <option value='Femme'>Femme</option>";
+
+          }
+          else {
+          	echo "<option value='Homme'>Homme</option>
+               <option selected value='Femme'>Femme</option>";
+          }
+            
+               echo "</select></td></tr>
 			<input type='hidden' name ='id_adherent' value='".$id_adherent."'>
 			<tr><td><input type='submit' name='submit' value='Valider les modifications'></td>
 		</table>

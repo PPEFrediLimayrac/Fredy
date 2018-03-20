@@ -1,3 +1,4 @@
+
 <?php
   session_start();
   include_once "includes\NoteDeFrais.php";
@@ -7,7 +8,7 @@
 
   $submit = isset($_POST['submit']) ? $_POST['submit'] : '';
   $lignefrais = new lignefrais();
-
+ 
 
   if($submit)
   {
@@ -20,6 +21,8 @@
   if(empty($annee)) {
     $annee = date("Y");
   }
+
+
 
   $valider =  isset($_POST['validerr']) ? $_POST['validerr'] : '';
   $pro = new bloque();
@@ -100,9 +103,14 @@
               <th>Supprimer</th>             
             </tr>
             <?php 
+
+             $tarifKm = new indemnite();
+             $tarifKm = $tarifKm->findByAnnee($annee);
+
               foreach ($rows as $lignefrais) 
               {
-                $total =$lignefrais->get_trajet_frais()+$lignefrais->get_km_frais()+$lignefrais->get_cout_trajet()+$lignefrais->get_cout_peage()+$lignefrais->get_cout_repas()+$lignefrais->get_cout_hebergement();
+               // $abcd = $lignefrais->get_id_frais();
+                $total =$lignefrais->get_trajet_frais()+($lignefrais->get_km_frais()*$tarifKm->get_tarif_kilometrique())+$lignefrais->get_cout_trajet()+$lignefrais->get_cout_peage()+$lignefrais->get_cout_repas()+$lignefrais->get_cout_hebergement();
 
                 if(empty($pros['id_bloque']) )
                 {  
@@ -142,6 +150,7 @@
       <?php 
         if(empty($pros['id_bloque']))
         { 
+
             echo '<p><a href="includes/ajouter.php?idBordereau='.$lignefrais->get_id_notedefrais().'&annee='.$annee.'"><img src="images/ajout.png" width="60" height="60"></a></p>';
             echo '<form method="post" action="Bordereau.php?annee='.$annee.'">
             <input type="submit" name="validerr" value="valider le bordereau">
@@ -152,7 +161,7 @@
     </div> 
   </div>
   
-	<div class="content">
+  <div class="content">
     <div class="content_resize">
       </br>
     </div>    
@@ -165,4 +174,4 @@
   </div>
 
 </body>
-</html>
+</html> 

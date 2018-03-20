@@ -32,7 +32,7 @@ function find($pseudo_demandeur, $mdp_demandeur) {
 function insert_demandeur(demandeur $demandeur_object) {
 
  $connexion = $this->get_connexion();
- $sql = "INSERT INTO demandeur(pseudo_demandeur ,mdp_demandeur ,mail_demandeur ) VALUES ( :pseudo_demandeur, :mdp_demandeur, :mail_demandeur)";
+ $sql = "INSERT INTO demandeur(pseudo_demandeur ,mdp_demandeur ,mail_demandeur, nom, prenom, adresse ) VALUES ( :pseudo_demandeur, :mdp_demandeur, :mail_demandeur, :nom, :prenom, :adresse)";
  try {
    $sth = $connexion->prepare($sql);
 
@@ -40,7 +40,10 @@ function insert_demandeur(demandeur $demandeur_object) {
            array(
                ":pseudo_demandeur" => $demandeur_object->get_pseudo_demandeur(),   
                 ":mdp_demandeur" => $demandeur_object->get_mdp_demandeur(),
-                ":mail_demandeur" => $demandeur_object->get_mail_demandeur()   
+                ":mail_demandeur" => $demandeur_object->get_mail_demandeur(),
+                ":nom" => $demandeur_object->get_nom(),
+                ":prenom" => $demandeur_object->get_prenom(),  
+                ":adresse" => $demandeur_object->get_adresse()    
    ));
 
  } catch (PDOException $e) {

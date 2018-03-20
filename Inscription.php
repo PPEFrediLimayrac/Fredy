@@ -1,4 +1,6 @@
 <?php
+
+
 session_start();
 $submit = isset($_POST['submit']) ? $_POST['submit'] : '';
 include ('hashage.php');
@@ -39,8 +41,13 @@ include_once "includes\Demandeur.php";
     			<p> Mot de passe <br /><input type="password" name="mdp_demandeur" value="" placeholder="je suis un mot de passe" required/></p>
     			<p> Confirmer mot de passe <br /><input type="password" name="mdp_demandeur2" value="" placeholder="je suis un mot de passe" required/></p>
     			<p> Adresse mail <br /><input type="mail" name="mail_demandeur" value="" placeholder="Viktorus@fredi.fr" required/></p>
-          <input type="submit" name="submit" value="s'inscrire"></br>
-		 
+         
+
+           <p> nom <br /><input type="text" name="nom" value="" placeholder="nom" required/></p>
+           <p> prenom <br /><input type="text" name="prenom" value="" placeholder="prenom" required/></p>
+           <p> adresse <br /><input type="text" name="adresse" value="" placeholder="adresse" required/></p>
+
+		  <input type="submit" name="submit" value="s'inscrire"></br>
       </form>
 			 </div>
 		</div>
@@ -51,6 +58,10 @@ include_once "includes\Demandeur.php";
            $mdp_demandeur = isset($_POST['mdp_demandeur']) ? $_POST['mdp_demandeur'] : '';
            $mdp_demandeur2 = isset($_POST['mdp_demandeur2']) ? $_POST['mdp_demandeur2'] : '';
            $mail_demandeur = isset($_POST['mail_demandeur']) ? $_POST['mail_demandeur'] : '';
+           $nom = isset($_POST['nom']) ? $_POST['nom'] : '';
+           $prenom = isset($_POST['prenom']) ? $_POST['prenom'] : '';
+           $adresse = isset($_POST['adresse']) ? $_POST['adresse'] : '';
+
            
 
            if ($submit){
@@ -58,7 +69,7 @@ include_once "includes\Demandeur.php";
             if($mdp_demandeur == $mdp_demandeur2){
 
                $crypt = hashage($mdp_demandeur);
-               $tableau = array("pseudo_demandeur" => $pseudo_demandeur, "mail_demandeur"=> $mail_demandeur, "mdp_demandeur" => $crypt);
+               $tableau = array("pseudo_demandeur" => $pseudo_demandeur, "mail_demandeur"=> $mail_demandeur, "mdp_demandeur" => $crypt,"nom" => $nom, "prenom" => $prenom, "adresse" => $adresse);
                $demandeur_object = new Demandeur($tableau);
               $DemandeurDAO = new DemandeurDAO();
              $DemandeurDAO->insert_demandeur($demandeur_object);

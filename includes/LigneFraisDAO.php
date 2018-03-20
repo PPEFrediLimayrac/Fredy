@@ -126,6 +126,7 @@ function insertAvancer($idlignefrais, $idBordereau, $pseudo){
     } catch (PDOException $e) {
       throw new Exception("Erreur lors de la requête SQL : " . $e->getMessage());
     }
+    print_r($row);
 
   	 $sql = "insert into avancer(id_demandeur, id_frais, id_notedefrais) values (:id_demandeur, :id_frais, :id_notedefrais)";
     try {

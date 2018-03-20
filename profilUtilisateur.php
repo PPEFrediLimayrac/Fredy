@@ -95,7 +95,7 @@
                     <td>'.$adherents->get_cp_adherent().'</td>
                     <td>'.$adherents->get_ville_adherent().'</td>
                     <td>'.$adherents->get_sexe_adherent().'</td>
-                    <td><a href="includes/ModifierAdh.php?id_adherent='.$adherents->get_id_adherent().'"><img src="images/modif.jpg" width="60" height="60"></td>
+                    <td><a href="includes/ModifierAdh.php?id_adherent='.$adherents->get_id_adherent().'&ji='.$adherents->get_nom_club().'"><img src="images/modif.jpg" width="60" height="60"></td>
 
                     <td><a href="includes/supprimerAdh.php?id_adherent='.$adherents->get_id_adherent().'"><img src="images/delete.png" width="60" height="60" style="position: center;"></a></td>
                 </tr>'; 
@@ -114,7 +114,34 @@
       <form action="profilUtilisateur.php" method="post" name="FormAjoutAdh">
         <div class="form_Ins_Un">
           <p> Numéro de licence<br /><input type="text" name="licence_adherent" value=""  required/></p>
-          <p> ID club (cf Tableau ci-dessous) <br /><input type="text" name="id_club" value=""  required/></p>
+
+
+            <label for="club">club</label><br />
+            <select name="id_club" id="id_club" required>
+               
+               
+               
+          
+
+<?php 
+            foreach ($rows2 as $club) {
+             
+              echo '<option value='.$club->get_id_club().'>'.$club->get_nom_club().'</option>';
+            }
+
+          ?>
+        
+  </select>
+
+
+
+
+
+
+
+
+
+          
           <p> Nom adherent<br /><input type="text" name="nom_adherent" value=""  required/></p>
           <p> Prenom adherent<br /><input type="text" name="prenom_adherent" value=""  required/></p>
           <p> Date de naissance<br /><input type='date' name='date_naissance' placeholder='date_naissance' required/></p>
@@ -136,22 +163,8 @@
           </div>
       </form>
 
-      <h3> Tableau des ID des clubs </h3>
-      <table class="tableauClub">
-        <tr class="club"><th class="club">Id Club</th><th class="club">Nom Club</th></tr>
-        
-          <?php 
-            foreach ($rows2 as $club) {
-              echo '
-              <tr class="club">
-                <td class="club">'.$club->get_id_club().'</td><td class="club">'.$club->get_nom_club().' </td>
-              </tr>';
-            }
 
-          ?>
-        
-
-      </table>
+      
     <div class="clr"></div>
   </div>
 

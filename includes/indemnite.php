@@ -1,6 +1,6 @@
 <?php
 
-include_once "indemniteDAO.php";
+include_once "IndemniteDAO.php";
 
 class indemnite extends indemniteDAO {
  

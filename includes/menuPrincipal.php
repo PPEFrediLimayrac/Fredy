@@ -3,7 +3,7 @@
         <ul>
         	<?php if($_SESSION) 
         	{
-        		echo' <li><a href="apresconnexion.php">Connecté en tant que '.$_SESSION['pseudo_demandeur']. '</a></li>';
+        		echo' <li><a href="/fredy/apresconnexion.php">Connecté en tant que '.$_SESSION['pseudo_demandeur']. '</a></li>';
         		echo' <li class="active"><a href="deconnexion.php">Se déconnecter </a> </li>'; 
         	}
         	else

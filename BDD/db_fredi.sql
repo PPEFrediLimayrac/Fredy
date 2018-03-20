@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.5.1
--- http://www.phpmyadmin.net
+-- version 4.7.0
+-- https://www.phpmyadmin.net/
 --
--- Client :  127.0.0.1
--- Généré le :  Mar 13 Mars 2018 à 12:07
--- Version du serveur :  5.7.11
--- Version de PHP :  5.6.19
+-- Hôte : 127.0.0.1
+-- Généré le :  mar. 20 mars 2018 à 14:08
+-- Version du serveur :  5.7.17
+-- Version de PHP :  5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,9 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `db_fredi`
 --
-
-CREATE DATABASE db_fredi;
-USE db_fredi;
 
 -- --------------------------------------------------------
 
@@ -44,7 +43,7 @@ CREATE TABLE `adherent` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `adherent`
+-- Déchargement des données de la table `adherent`
 --
 
 INSERT INTO `adherent` (`licence_adherent`, `nom_adherent`, `prenom_adherent`, `date_naissance`, `rue_adherent`, `cp_adherent`, `ville_adherent`, `sexe_adherent`, `id_adherent`, `id_club`, `id_demandeur`) VALUES
@@ -63,7 +62,7 @@ CREATE TABLE `avancer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `avancer`
+-- Déchargement des données de la table `avancer`
 --
 
 INSERT INTO `avancer` (`id_demandeur`, `id_frais`, `id_notedefrais`) VALUES
@@ -91,7 +90,7 @@ CREATE TABLE `bloque` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `bloque`
+-- Déchargement des données de la table `bloque`
 --
 
 INSERT INTO `bloque` (`nom_bloque`, `annee_bloque`, `id_bloque`) VALUES
@@ -116,7 +115,7 @@ CREATE TABLE `club` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `club`
+-- Déchargement des données de la table `club`
 --
 
 INSERT INTO `club` (`id_club`, `nom_club`, `adresse_club`, `cp_club`, `ville_club`, `sigle_club`, `nompresident_club`, `id_ligue`) VALUES
@@ -136,7 +135,7 @@ CREATE TABLE `demandeur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `demandeur`
+-- Déchargement des données de la table `demandeur`
 --
 
 INSERT INTO `demandeur` (`id_demandeur`, `pseudo_demandeur`, `mail_demandeur`, `mdp_demandeur`) VALUES
@@ -156,11 +155,15 @@ CREATE TABLE `indemnite` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `indemnite`
+-- Déchargement des données de la table `indemnite`
 --
 
 INSERT INTO `indemnite` (`id_indemnite`, `annee_indemnite`, `tarif_kilometrique`) VALUES
-(1, 2018, 0.543);
+(1, 2018, 0.543),
+(2, 2017, 0.524),
+(3, 2016, 0.5),
+(4, 2015, 0.2),
+(5, 2014, 0.15);
 
 -- --------------------------------------------------------
 
@@ -182,7 +185,7 @@ CREATE TABLE `lignefrais` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `lignefrais`
+-- Déchargement des données de la table `lignefrais`
 --
 
 INSERT INTO `lignefrais` (`id_frais`, `datelignefrais`, `trajet_frais`, `km_frais`, `cout_trajet`, `cout_peage`, `cout_hebergement`, `cout_repas`, `id_motif`, `id_indemnite`) VALUES
@@ -202,7 +205,7 @@ CREATE TABLE `ligue` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `ligue`
+-- Déchargement des données de la table `ligue`
 --
 
 INSERT INTO `ligue` (`id_ligue`, `libelle_ligue`) VALUES
@@ -220,7 +223,7 @@ CREATE TABLE `motif` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `motif`
+-- Déchargement des données de la table `motif`
 --
 
 INSERT INTO `motif` (`id_motif`, `libelle_motif`) VALUES
@@ -238,7 +241,7 @@ CREATE TABLE `notedefrais` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Contenu de la table `notedefrais`
+-- Déchargement des données de la table `notedefrais`
 --
 
 INSERT INTO `notedefrais` (`id_notedefrais`, `annee_notedefrais`) VALUES
@@ -268,7 +271,7 @@ CREATE TABLE `representant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Index pour les tables exportées
+-- Index pour les tables déchargées
 --
 
 --
@@ -345,14 +348,14 @@ ALTER TABLE `representant`
   ADD PRIMARY KEY (`id_demandeur`);
 
 --
--- AUTO_INCREMENT pour les tables exportées
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
 -- AUTO_INCREMENT pour la table `adherent`
 --
 ALTER TABLE `adherent`
-  MODIFY `id_adherent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_adherent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT pour la table `bloque`
 --
@@ -372,7 +375,7 @@ ALTER TABLE `demandeur`
 -- AUTO_INCREMENT pour la table `indemnite`
 --
 ALTER TABLE `indemnite`
-  MODIFY `id_indemnite` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_indemnite` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT pour la table `lignefrais`
 --
@@ -394,7 +397,7 @@ ALTER TABLE `motif`
 ALTER TABLE `notedefrais`
   MODIFY `id_notedefrais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- Contraintes pour les tables exportées
+-- Contraintes pour les tables déchargées
 --
 
 --
@@ -430,6 +433,7 @@ ALTER TABLE `lignefrais`
 --
 ALTER TABLE `representant`
   ADD CONSTRAINT `FK_representant_id_demandeur` FOREIGN KEY (`id_demandeur`) REFERENCES `demandeur` (`id_demandeur`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

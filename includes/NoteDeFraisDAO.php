@@ -21,6 +21,7 @@ class NoteDeFRaisDAO extends DAO{
     } catch (PDOException $e) {
       throw new Exception("Erreur lors de la requête SQL : " . $e->getMessage());
     }
+    
   	$sql = "SELECT LAST_INSERT_ID() FROM notedefrais";
     try {
       $sth = self::get_connexion()->prepare($sql);
@@ -30,6 +31,8 @@ class NoteDeFRaisDAO extends DAO{
       throw new Exception("Erreur lors de la requête SQL : " . $e->getMessage());
     }
 return $row;
+
+
 
 }
 }

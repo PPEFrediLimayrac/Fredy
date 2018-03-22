@@ -74,18 +74,38 @@
     <div class="hbg_resize"> 
       <div class="form_Ins_Un">
         <center>
+          <?php echo '
         <form method="post" action="Bordereau.php">
-          <SELECT name="annee" size="1">
-            <OPTION>2014
-            <OPTION>2015
-            <OPTION>2016
-            <OPTION>2017
-            <OPTION>2018
-          </SELECT>
-          <input type='submit' name='submit' value='Choisir cette année'>
-        </FORM>
+          <SELECT name="annee" size="1">' ;
+
+          
+          if($annee == '2014'){
+            echo ' <OPTION selected>2014';
+          }else {echo ' <OPTION>2014';}
+          if($annee == '2015'){
+            echo ' <OPTION selected>2015';
+          }else {echo ' <OPTION>2015';}
+          if($annee == '2016'){
+            echo ' <OPTION selected>2016';
+          }else {echo ' <OPTION>2016';}
+          if($annee == '2017'){
+            echo ' <OPTION selected>2017';
+          }else {echo ' <OPTION>2017';}
+          if($annee == '2018'){
+            echo ' <OPTION selected>2018';
+          }else {echo ' <OPTION>2018';}
+
+
+
+
+
+        echo  '</SELECT>
+          <input type="submit" name="submit" value="Choisir cette année">
+        </FORM>';
+
+        ?>
       </center> 
-      <?php echo "année en cours : ".$annee; ?>
+   
 
         <table border=1 cellspacing=1 cellpadding=2 bordercolor="black">
             <caption><h1>Tableau des notes de frais </h1></caption>
@@ -99,18 +119,21 @@
               <th>Repas</th>
               <th>Hebergement</th>
               <th>Total</th>
-              <th>Modifier</th> 
-              <th>Supprimer</th>             
+             <?php if(empty($pros['id_bloque']))
+             {
+            echo "  <th>Modifier</th> 
+              <th>Supprimer</th> "; }
+              ?>           
             </tr>
             <?php 
 
-             $tarifKm = new indemnite();
-             $tarifKm = $tarifKm->findByAnnee($annee);
+             $tarifK = new indemnite();
+             $tarifKm = $tarifK->findByAnnee($annee);
 
               foreach ($rows as $lignefrais) 
               {
                // $abcd = $lignefrais->get_id_frais();
-                $total =$lignefrais->get_trajet_frais()+($lignefrais->get_km_frais()*$tarifKm->get_tarif_kilometrique())+$lignefrais->get_cout_trajet()+$lignefrais->get_cout_peage()+$lignefrais->get_cout_repas()+$lignefrais->get_cout_hebergement();
+                $total =$lignefrais->get_trajet_frais()+($lignefrais->get_km_frais()*$tarifKm['tarif_kilometrique'])+$lignefrais ->get_cout_trajet()+$lignefrais->get_cout_peage()+$lignefrais->get_cout_repas()+$lignefrais->get_cout_hebergement();
 
                 if(empty($pros['id_bloque']) )
                 {  
@@ -119,7 +142,7 @@
                   <td>'.$lignefrais->get_datelignefrais().'</td>
                   <td>'.$lignefrais->get_trajet_frais().'</td>
                   <td>'.$lignefrais->get_km_frais().'</td>
-                  <td>'.$lignefrais->get_cout_trajet().'</td>
+                  <td>'.$lignefrais->get_km_frais()*$tarifKm['tarif_kilometrique'].'</td>
                   <td>'.$lignefrais->get_cout_peage().'</td>
                   <td>'.$lignefrais->get_cout_repas().'</td>
                   <td>'.$lignefrais->get_cout_hebergement().'</td>
@@ -135,13 +158,12 @@
                       <td>'.$lignefrais->get_datelignefrais().'</td>
                       <td>'.$lignefrais->get_trajet_frais().'</td>
                       <td>'.$lignefrais->get_km_frais().'</td>
-                      <td>'.$lignefrais->get_cout_trajet().'</td>
+                      <td>'.$lignefrais->get_km_frais()*$tarifKm['tarif_kilometrique'].'</td>
                       <td>'.$lignefrais->get_cout_peage().'</td>
                       <td>'.$lignefrais->get_cout_repas().'</td>
                       <td>'.$lignefrais->get_cout_hebergement().'</td>
                       <td>'.$total.'</td>
-                      <td></td>
-                      <td></td>
+                   
                     </tr>');
                 }
               }

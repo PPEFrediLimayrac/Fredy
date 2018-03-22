@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mar. 20 mars 2018 à 14:08
+-- Généré le :  jeu. 22 mars 2018 à 13:06
 -- Version du serveur :  5.7.17
 -- Version de PHP :  5.6.30
 
@@ -47,7 +47,12 @@ CREATE TABLE `adherent` (
 --
 
 INSERT INTO `adherent` (`licence_adherent`, `nom_adherent`, `prenom_adherent`, `date_naissance`, `rue_adherent`, `cp_adherent`, `ville_adherent`, `sexe_adherent`, `id_adherent`, `id_club`, `id_demandeur`) VALUES
-(20202020, 'gh', 'fdf', NULL, NULL, NULL, NULL, NULL, 4, NULL, 1);
+(20202020, 'gh', 'fdf', NULL, NULL, NULL, NULL, NULL, 4, NULL, 1),
+(201458, 'koli', 'cristophe', '2018-03-25', 'pont', '65000', 'toulouse', 'Femme', 6, 1, 3),
+(1146841, 'NOM', 'PRENOM', '2018-06-15', 'hutz', '57842', 'toulouse', 'Femme', 7, 1, 3),
+(12121212, 'tutu', 'tutu', '2018-03-16', 'tutu', '1212121', 'tuhttht', 'Homme', 9, 3, 7),
+(5872, 'Alary', 'adri', '2018-03-24', 'limayrac', '31110', 'toulouse', 'Homme', 10, 2, 8),
+(158, 'koi', 'kop', '2018-10-30', 'ahh', '1487', 'toulouse', 'Homme', 11, 1, 8);
 
 -- --------------------------------------------------------
 
@@ -75,7 +80,26 @@ INSERT INTO `avancer` (`id_demandeur`, `id_frais`, `id_notedefrais`) VALUES
 (1, 8, 4),
 (1, 8, 7),
 (1, 9, 8),
-(1, 10, 9);
+(1, 10, 9),
+(1, 32, 10),
+(1, 33, 11),
+(1, 34, 12),
+(1, 35, 13),
+(1, 36, 14),
+(1, 37, 15),
+(1, 38, 16),
+(1, 39, 17),
+(1, 40, 18),
+(1, 41, 19),
+(1, 42, 20),
+(1, 43, 16),
+(1, 44, 16),
+(1, 45, 16),
+(1, 46, 9),
+(8, 46, 21),
+(8, 47, 21),
+(8, 48, 21),
+(9, 49, 22);
 
 -- --------------------------------------------------------
 
@@ -95,7 +119,9 @@ CREATE TABLE `bloque` (
 
 INSERT INTO `bloque` (`nom_bloque`, `annee_bloque`, `id_bloque`) VALUES
 ('adrien', 2018, 5),
-('adrien', 2018, 4);
+('adrien', 2018, 4),
+('adrien', 2016, 6),
+('adri', 2018, 7);
 
 -- --------------------------------------------------------
 
@@ -119,7 +145,9 @@ CREATE TABLE `club` (
 --
 
 INSERT INTO `club` (`id_club`, `nom_club`, `adresse_club`, `cp_club`, `ville_club`, `sigle_club`, `nompresident_club`, `id_ligue`) VALUES
-(1, 'TFCC', '31 rue vialette', '31100', 'Toulouse', 'TFCC', 'Stephane Mezart', 1);
+(1, 'TFCC', '31 rue vialette', '31100', 'Toulouse', 'TFCC', 'Stephane Mezart', 1),
+(2, 'rugbyclub', 'rue des roses', '31200', 'toulouse', 'coq', 'pignoux', 1),
+(3, 'stripclub', 'rue des lilas', '31200', 'toulouse', 'rose', 'robert', 1);
 
 -- --------------------------------------------------------
 
@@ -131,16 +159,26 @@ CREATE TABLE `demandeur` (
   `id_demandeur` int(11) NOT NULL,
   `pseudo_demandeur` varchar(25) DEFAULT NULL,
   `mail_demandeur` varchar(60) DEFAULT NULL,
-  `mdp_demandeur` varchar(150) DEFAULT NULL
+  `mdp_demandeur` varchar(150) DEFAULT NULL,
+  `nom` varchar(25) NOT NULL,
+  `prenom` varchar(25) NOT NULL,
+  `adresse` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `demandeur`
 --
 
-INSERT INTO `demandeur` (`id_demandeur`, `pseudo_demandeur`, `mail_demandeur`, `mdp_demandeur`) VALUES
-(1, 'adrien', 'adrien@fakemail.com', '7256fa491423f6017b5a8534f600603cd912904165c0c59847e300b92e43ffe2'),
-(2, 'louis', 'moi@fakemail.com', '2c4b93f67dba52098b3b8a148de5476b65f99f76e1b4fb6db667b3242742157c');
+INSERT INTO `demandeur` (`id_demandeur`, `pseudo_demandeur`, `mail_demandeur`, `mdp_demandeur`, `nom`, `prenom`, `adresse`) VALUES
+(1, 'adrien', 'adrien@fakemail.com', '7256fa491423f6017b5a8534f600603cd912904165c0c59847e300b92e43ffe2', '', '', ''),
+(2, 'louis', 'moi@fakemail.com', '2c4b93f67dba52098b3b8a148de5476b65f99f76e1b4fb6db667b3242742157c', '', '', ''),
+(3, 'Clement', 'clement@coucou.fr', '9ece1493eeef8d413fc0a5849589d2d5512c2278788e81e7bd975f77de6e41d8', '', '', ''),
+(4, 'tutu', 'tutu@tutu', '6aa119ff81402a287ecbe445d87a289a5189b09810f2f07f811431667fea83c8', '', '', ''),
+(5, 'tutu', 'tutu@tutu', '6aa119ff81402a287ecbe445d87a289a5189b09810f2f07f811431667fea83c8', '', '', ''),
+(6, 'tutu', 'tutu', '6aa119ff81402a287ecbe445d87a289a5189b09810f2f07f811431667fea83c8', '', '', ''),
+(7, 'fufu', 'fufu@fufu', 'f50fd939fb8c453cb4624c86c27134e765dc2a109f7b733f1f6b78f856ae227f', 'fufu', 'fufu', 'fufu'),
+(8, 'adri', 'adri@coucou.fr', '2112dd9786065d376be988658e3f5dfb54a1e3024801b26976cd30e900e70115', 'Alary', 'adrien', 'limayrac'),
+(9, 'viktor', 'viktorus@mail.fr', '859e2dc09b33cf026b8b9d3f36419f3769d78baf76595059f9b278fbe1102f92', 'Brioche', 'Viktor', '17 rue');
 
 -- --------------------------------------------------------
 
@@ -191,7 +229,45 @@ CREATE TABLE `lignefrais` (
 INSERT INTO `lignefrais` (`id_frais`, `datelignefrais`, `trajet_frais`, `km_frais`, `cout_trajet`, `cout_peage`, `cout_hebergement`, `cout_repas`, `id_motif`, `id_indemnite`) VALUES
 (1, '2018-02-10', 'Toulouse-Bordeau', 400, 20, 35, 0, 35, 1, 1),
 (7, '2018-03-23', '8', 7, 5, 4, 2, 5, NULL, NULL),
-(8, '2018-03-07', '15', 789, 79, 756, 45, 4678, NULL, NULL);
+(8, '2018-03-07', '15', 789, 79, 756, 45, 4678, NULL, NULL),
+(9, '2017-12-08', '', 358, 10, 10, 10, 10, NULL, NULL),
+(10, '2018-03-08', 'Toulouse - tarbes', 360, 10, 10, 10, 10, NULL, NULL),
+(11, '2016-06-17', 'Toulouse - tarbes', 236, 25, 23, 24, 25, NULL, NULL),
+(12, '2016-06-17', 'Toulouse - tarbes', 236, 25, 23, 24, 25, NULL, NULL),
+(13, '2016-06-17', 'Toulouse - tarbes', 236, 25, 23, 24, 25, NULL, NULL),
+(14, '0001-01-14', '1', 1, 1, 1, 5, 11, NULL, NULL),
+(15, '0001-01-14', '1', 1, 1, 1, 5, 11, NULL, NULL),
+(17, '0001-01-14', '1', 1, 1, 1, 5, 11, NULL, NULL),
+(18, '2018-03-07', '542', 5, 7, 8, 1, 7, NULL, NULL),
+(19, '2018-03-07', '542', 5, 7, 8, 1, 7, NULL, NULL),
+(20, '2018-03-07', '542', 5, 7, 8, 1, 7, NULL, NULL),
+(21, '2018-03-08', 'Toulouse - tarbes', 15, 75, 78, 96, 54, NULL, NULL),
+(22, '2018-03-08', 'Toulouse - tarbes', 15, 75, 78, 96, 54, NULL, NULL),
+(23, '2018-03-08', 'Toulouse - tarbes', 15, 75, 78, 96, 54, NULL, NULL),
+(24, '2018-03-08', 'Toulouse - tarbes', 15, 75, 78, 96, 54, NULL, NULL),
+(25, '2018-03-07', '15²156', 4864, 684, 56, 148, 4, NULL, NULL),
+(26, '2018-03-07', '7', 8, 21, 4, 94, 2, NULL, NULL),
+(27, '2018-03-07', '7', 8, 21, 4, 94, 2, NULL, NULL),
+(28, '2018-03-07', '7', 8, 21, 4, 94, 2, NULL, NULL),
+(29, '2018-03-07', '7', 8, 21, 4, 94, 2, NULL, NULL),
+(30, '2018-03-07', '7', 8, 21, 4, 94, 2, NULL, NULL),
+(31, '2018-03-07', '7', 8, 21, 4, 94, 2, NULL, NULL),
+(32, '2018-03-15', '15', 1, 68, 486, 46, 146, NULL, NULL),
+(33, '2018-03-01', '', 48, 4, 9814, 814, 4, NULL, NULL),
+(34, '2018-03-15', '186141864', 6841, 61, 6486, 1, 1, NULL, NULL),
+(35, '2018-03-15', '7', 8, 78, 7, 89789, 5, NULL, NULL),
+(36, '2018-03-15', '7', 8, 78, 7, 89789, 5, NULL, NULL),
+(37, '2018-03-15', '159', 156, 87, 64, 61, 1, NULL, NULL),
+(38, '2018-03-14', '1', 61, 61, 6, 16, 1, NULL, NULL),
+(39, '2018-03-22', '16', 1, 61, 681, 61, 16, NULL, NULL),
+(40, '2018-03-24', '189', 1, 1, 89, 891, 891, NULL, NULL),
+(41, '2018-03-15', '1', 891, 891, 981, 91, 18, NULL, NULL),
+(42, '2018-03-15', '1', 891, 891, 981, 91, 18, NULL, NULL),
+(43, '2018-03-14', '498', 14, 8914, 8914, 891, 89, NULL, NULL),
+(45, '2018-03-14', '4', 984, 894, 894, 894, 894, NULL, NULL),
+(47, '2018-03-25', 'toulouse paris', 580, 20, 25, 26, 27, NULL, NULL),
+(48, '2018-03-14', 'ahahah', 58, 18, 48, 78, 59, NULL, NULL),
+(49, '2018-03-17', 'toulouse tarbes', 12, 13, 14, 15, 15, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -253,7 +329,20 @@ INSERT INTO `notedefrais` (`id_notedefrais`, `annee_notedefrais`) VALUES
 (6, 2014),
 (7, 2014),
 (8, 2017),
-(9, 2017);
+(9, 2017),
+(10, NULL),
+(11, NULL),
+(12, NULL),
+(13, NULL),
+(14, NULL),
+(15, NULL),
+(16, 2016),
+(17, NULL),
+(18, 2015),
+(19, NULL),
+(20, NULL),
+(21, 2018),
+(22, 2018);
 
 -- --------------------------------------------------------
 
@@ -355,22 +444,22 @@ ALTER TABLE `representant`
 -- AUTO_INCREMENT pour la table `adherent`
 --
 ALTER TABLE `adherent`
-  MODIFY `id_adherent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_adherent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT pour la table `bloque`
 --
 ALTER TABLE `bloque`
-  MODIFY `id_bloque` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_bloque` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `club`
 --
 ALTER TABLE `club`
-  MODIFY `id_club` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_club` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT pour la table `demandeur`
 --
 ALTER TABLE `demandeur`
-  MODIFY `id_demandeur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_demandeur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `indemnite`
 --
@@ -380,7 +469,7 @@ ALTER TABLE `indemnite`
 -- AUTO_INCREMENT pour la table `lignefrais`
 --
 ALTER TABLE `lignefrais`
-  MODIFY `id_frais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_frais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT pour la table `ligue`
 --
@@ -395,7 +484,7 @@ ALTER TABLE `motif`
 -- AUTO_INCREMENT pour la table `notedefrais`
 --
 ALTER TABLE `notedefrais`
-  MODIFY `id_notedefrais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_notedefrais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- Contraintes pour les tables déchargées
 --

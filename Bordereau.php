@@ -110,7 +110,7 @@
         <table border=1 cellspacing=1 cellpadding=2 bordercolor="black">
             <caption><h1>Tableau des notes de frais </h1></caption>
             <tr>
-              <th>ID ligne frais</th>
+             
               <th>Date</th>
               <th>Trajet</th>   
               <th>Kms parcourus</th>
@@ -138,7 +138,7 @@
                 if(empty($pros['id_bloque']) )
                 {  
                   echo('<tr>
-                  <td>'.$lignefrais->get_id_frais().'</td>
+                  
                   <td>'.$lignefrais->get_datelignefrais().'</td>
                   <td>'.$lignefrais->get_trajet_frais().'</td>
                   <td>'.$lignefrais->get_km_frais().'</td>
@@ -154,7 +154,7 @@
                 }else
                 {
                   echo('<tr>
-                      <td>'.$lignefrais->get_id_frais().'</td>
+                      
                       <td>'.$lignefrais->get_datelignefrais().'</td>
                       <td>'.$lignefrais->get_trajet_frais().'</td>
                       <td>'.$lignefrais->get_km_frais().'</td>

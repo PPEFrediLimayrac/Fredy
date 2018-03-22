@@ -76,15 +76,15 @@ $object->insertAvancer($h, $idBordereau, $pseudo );
       <div class="form_Ins_Un">
         
       	<form method='post' action='ajouter.php'><br/>
-<input type='date' name='datelignefrais' placeholder='datelignefrais'><br/>
-<input type='text' name='trajet_frais' placeholder='libelle trajet'><br/>
-<input type='text' name='km_frais' placeholder='km parcourus'><br/>
-<input type='text' name='cout_trajet' placeholder='cout_trajet'><br/>
-<input type='text' name='cout_peage' placeholder='cout_peage'><br/>
-<input type='text' name='cout_hebergement' placeholder='cout_hebergement'><br/>
-<input type='text' name='cout_repas' placeholder='cout_repas'><br/>
-<input type='hidden' name ='idBordereau' value=<?php echo $idBordereau; ?>>
-<input type='hidden' name ='annee' value=<?php echo $annee;?>>
+<input type='date' name='datelignefrais' placeholder='Date du trajet'><br/><br/>
+<input type='text' name='trajet_frais' placeholder='Trajet effectué'><br/><br/>
+<input type='text' name='km_frais' placeholder='KM parcourus'><br/><br/>
+<input type='text' name='cout_peage' placeholder='Coût des péages'><br/><br/>
+<input type='text' name='cout_hebergement' placeholder='Coût hébergement'><br/><br/>
+<input type='text' name='cout_repas' placeholder='Coût repas'><br/><br/>
+<input type='hidden' name ='idBordereau' value=<?php echo $idBordereau; ?>><br/>
+<input type='hidden' name ='annee' value=<?php echo $annee;?>><br/>
+<input type='hidden' name='cout_trajet' placeholder='cout_trajet' value="0">
 <input type='submit' name='submit' value='Envoyer le formulaire'>
 </form>
 

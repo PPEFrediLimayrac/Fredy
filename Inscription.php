@@ -74,6 +74,8 @@ include_once "includes\Demandeur.php";
               $DemandeurDAO = new DemandeurDAO();
              $DemandeurDAO->insert_demandeur($demandeur_object);
 
+            header('Location: connexion.php?inscription=ok');
+
             }
             else {
               echo "les deux mots de passes sont différents";

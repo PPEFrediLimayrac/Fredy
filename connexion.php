@@ -42,11 +42,19 @@ include_once "includes\DemandeurDAO.php";
 </form>
 
  <?php
+
+if(isset($_GET['inscription'])){
+                        echo"<b><font color='orange'> Vous venez bien de vous inscrire, veuillez vous connecter.</font></b></br>";
+                      }
+          
+
           $pseudo_demandeur = isset($_POST['pseudo_demandeur']) ? $_POST['pseudo_demandeur'] : '';
            $mdp_demandeur = isset($_POST['mdp_demandeur']) ? $_POST['mdp_demandeur'] : '';
        
             $crypt = hashage($mdp_demandeur); 
         
+         
+            
         if ($submit) 
  
         

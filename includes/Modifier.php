@@ -55,13 +55,13 @@ $submit = isset($_POST['submit']);
 <?php
 	echo "<form method='post' action='Modifier.php' style='position: center;'><br/>
 	<table>
-		<tr><td>Date</td><td><input type='date' name='datelignefrais' placeholder='datelignefrais' value=".$object->get_datelignefrais()."></td></tr>
-		<tr><td>Frais trajet</td><td><input type='number' name='trajet_frais' placeholder='trajet_frais' value=".$object->get_trajet_frais()."></td></tr>
-		<tr><td>Frais kilometrique</td><td><input type='number' name='km_frais' placeholder='km_frais' value=".$object->get_km_frais()."></td></tr>
-		<tr><td>Cout trajet</td><td><input type='number' name='cout_trajet' placeholder='cout_trajet' value=".$object->get_cout_trajet()."></td></tr>
-		<tr><td>Péage</td><td><input type='number' name='cout_peage' placeholder='cout_peage' value=".$object->get_cout_peage()."></td></tr>
-		<tr><td>Hebergement</td><td><input type='number' name='cout_hebergement' placeholder='cout_hebergement' value=".$object->get_cout_hebergement()."><br/>
-		<tr><td>Cout repas</td><td><input type='number' name='cout_repas' placeholder='cout_repas' value=".$object->get_cout_repas()."></td></tr>
+		<tr><td>Date</td><td><input type='date' name='datelignefrais'  value=".$object->get_datelignefrais()."></td></tr>
+		<tr><td>Nom trajet</td><td><input type='text' name='trajet_frais'  value=".$object->get_trajet_frais()."></td></tr>
+		<tr><td>Kilomètres parcourus</td><td><input type='number' name='km_frais' value=".$object->get_km_frais()."></td></tr>
+		<input type='hidden' name='cout_trajet' value=".$object->get_cout_trajet().">
+		<tr><td>Coût péage</td><td><input type='number' name='cout_peage' value=".$object->get_cout_peage()."></td></tr>
+		<tr><td>Coût Hébergement</td><td><input type='number' name='cout_hebergement'value=".$object->get_cout_hebergement()."><br/>
+		<tr><td>Coût repas</td><td><input type='number' name='cout_repas' value=".$object->get_cout_repas()."></td></tr>
 			<input type='hidden' name ='idBordereau' value='".$idBordereau."'>
 			<input type='hidden' name ='annee' value='".$annee."'>
 		<tr><td><input type='submit' name='submit' value='Envoyer le formulaire'></td>

@@ -2,8 +2,8 @@
 -- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- HÃ´te : 127.0.0.1
--- GÃ©nÃ©rÃ© le :  jeu. 22 mars 2018 Ã  13:06
+-- Hôte : 127.0.0.1
+-- Généré le :  jeu. 22 mars 2018 à 13:06
 -- Version du serveur :  5.7.17
 -- Version de PHP :  5.6.30
 
@@ -19,8 +19,12 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de donnÃ©es :  `db_fredi`
+-- Base de données :  `db_fredi`
 --
+
+DROP DATABASE db_fredi;
+CREATE DATABASE db_fredi;
+USE db_fredi;
 
 -- --------------------------------------------------------
 
@@ -43,7 +47,7 @@ CREATE TABLE `adherent` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- DÃ©chargement des donnÃ©es de la table `adherent`
+-- Déchargement des données de la table `adherent`
 --
 
 INSERT INTO `adherent` (`licence_adherent`, `nom_adherent`, `prenom_adherent`, `date_naissance`, `rue_adherent`, `cp_adherent`, `ville_adherent`, `sexe_adherent`, `id_adherent`, `id_club`, `id_demandeur`) VALUES
@@ -67,7 +71,7 @@ CREATE TABLE `avancer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- DÃ©chargement des donnÃ©es de la table `avancer`
+-- Déchargement des données de la table `avancer`
 --
 
 INSERT INTO `avancer` (`id_demandeur`, `id_frais`, `id_notedefrais`) VALUES
@@ -114,7 +118,7 @@ CREATE TABLE `bloque` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- DÃ©chargement des donnÃ©es de la table `bloque`
+-- Déchargement des données de la table `bloque`
 --
 
 INSERT INTO `bloque` (`nom_bloque`, `annee_bloque`, `id_bloque`) VALUES
@@ -141,7 +145,7 @@ CREATE TABLE `club` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- DÃ©chargement des donnÃ©es de la table `club`
+-- Déchargement des données de la table `club`
 --
 
 INSERT INTO `club` (`id_club`, `nom_club`, `adresse_club`, `cp_club`, `ville_club`, `sigle_club`, `nompresident_club`, `id_ligue`) VALUES
@@ -166,7 +170,7 @@ CREATE TABLE `demandeur` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- DÃ©chargement des donnÃ©es de la table `demandeur`
+-- Déchargement des données de la table `demandeur`
 --
 
 INSERT INTO `demandeur` (`id_demandeur`, `pseudo_demandeur`, `mail_demandeur`, `mdp_demandeur`, `nom`, `prenom`, `adresse`) VALUES
@@ -193,7 +197,7 @@ CREATE TABLE `indemnite` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- DÃ©chargement des donnÃ©es de la table `indemnite`
+-- Déchargement des données de la table `indemnite`
 --
 
 INSERT INTO `indemnite` (`id_indemnite`, `annee_indemnite`, `tarif_kilometrique`) VALUES
@@ -223,7 +227,7 @@ CREATE TABLE `lignefrais` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- DÃ©chargement des donnÃ©es de la table `lignefrais`
+-- Déchargement des données de la table `lignefrais`
 --
 
 INSERT INTO `lignefrais` (`id_frais`, `datelignefrais`, `trajet_frais`, `km_frais`, `cout_trajet`, `cout_peage`, `cout_hebergement`, `cout_repas`, `id_motif`, `id_indemnite`) VALUES
@@ -245,7 +249,7 @@ INSERT INTO `lignefrais` (`id_frais`, `datelignefrais`, `trajet_frais`, `km_frai
 (22, '2018-03-08', 'Toulouse - tarbes', 15, 75, 78, 96, 54, NULL, NULL),
 (23, '2018-03-08', 'Toulouse - tarbes', 15, 75, 78, 96, 54, NULL, NULL),
 (24, '2018-03-08', 'Toulouse - tarbes', 15, 75, 78, 96, 54, NULL, NULL),
-(25, '2018-03-07', '15Â²156', 4864, 684, 56, 148, 4, NULL, NULL),
+(25, '2018-03-07', '15²156', 4864, 684, 56, 148, 4, NULL, NULL),
 (26, '2018-03-07', '7', 8, 21, 4, 94, 2, NULL, NULL),
 (27, '2018-03-07', '7', 8, 21, 4, 94, 2, NULL, NULL),
 (28, '2018-03-07', '7', 8, 21, 4, 94, 2, NULL, NULL),
@@ -281,7 +285,7 @@ CREATE TABLE `ligue` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- DÃ©chargement des donnÃ©es de la table `ligue`
+-- Déchargement des données de la table `ligue`
 --
 
 INSERT INTO `ligue` (`id_ligue`, `libelle_ligue`) VALUES
@@ -299,7 +303,7 @@ CREATE TABLE `motif` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- DÃ©chargement des donnÃ©es de la table `motif`
+-- Déchargement des données de la table `motif`
 --
 
 INSERT INTO `motif` (`id_motif`, `libelle_motif`) VALUES
@@ -317,7 +321,7 @@ CREATE TABLE `notedefrais` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- DÃ©chargement des donnÃ©es de la table `notedefrais`
+-- Déchargement des données de la table `notedefrais`
 --
 
 INSERT INTO `notedefrais` (`id_notedefrais`, `annee_notedefrais`) VALUES
@@ -360,7 +364,7 @@ CREATE TABLE `representant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Index pour les tables dÃ©chargÃ©es
+-- Index pour les tables déchargées
 --
 
 --
@@ -437,7 +441,7 @@ ALTER TABLE `representant`
   ADD PRIMARY KEY (`id_demandeur`);
 
 --
--- AUTO_INCREMENT pour les tables dÃ©chargÃ©es
+-- AUTO_INCREMENT pour les tables déchargées
 --
 
 --
@@ -486,7 +490,7 @@ ALTER TABLE `motif`
 ALTER TABLE `notedefrais`
   MODIFY `id_notedefrais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
--- Contraintes pour les tables dÃ©chargÃ©es
+-- Contraintes pour les tables déchargées
 --
 
 --

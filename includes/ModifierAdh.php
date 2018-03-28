@@ -22,6 +22,7 @@
 	$object = new adherent();
 	$object = $object->findByID($id_adherent);
 	$submit = isset($_POST['submit']);
+
 ?>
 
 <!DOCTYPE html>
@@ -58,12 +59,13 @@ $clubs = new club();
 
 	echo "<form method='post' action='ModifierAdh.php' style='position: center;'><br/>
 		<table>
-			<tr><td>Licence</td><td><input type='licence_adherent' name='licence_adherent' placeholder='licence_adherent' value=".$object->get_licence_adherent()."></td></tr>
-			<tr><td>Nom</td><td><input type='nom_adherent' name='nom_adherent' placeholder='nom_adherent' value=".$object->get_nom_adherent()."></td></tr>
-			<tr><td>Prenom </td><td><input type='prenom_adherent' name='prenom_adherent' placeholder='prenom_adherent' value=".$object->get_prenom_adherent()."></td></tr>
+			<tr><td>Licence</td><td><input type='text' name='licence_adherent' placeholder='licence_adherent' value='".$object->get_licence_adherent()."'></td></tr>
+			<tr><td>Nom</td><td><input type='text' name='nom_adherent' placeholder='nom_adherent' value='".$object->get_nom_adherent()."'></td></tr>
+			<tr><td>Prenom </td><td><input type='text' name='prenom_adherent' placeholder='prenom_adherent' value='".$object->get_prenom_adherent()."'></td></tr>
 			
 <tr><td><label for='club'>club</label><br /></td>
           <td>  <select name='nom_club' id='nom_club' required>";
+
           foreach ($rows2 as $club) {
              if($club->get_nom_club()==$ji){
               echo ' <option selected value='.$club->get_nom_club().'>'.$club->get_nom_club().'</option>';
@@ -76,13 +78,14 @@ $clubs = new club();
 
 
 			<tr><td>
-			  Date de naissance</td><td><input type='date' name='date_naissance' placeholder='date_naissance' value=".$object->get_date_naissance()."></td></tr>
+			  Date de naissance</td><td><input type='date' name='date_naissance' placeholder='date_naissance' value='".$object->get_date_naissance()."'></td></tr>
 
 
 			
-			<tr><td>Rue</td><td><input type='rue_adherent' name='rue_adherent' placeholder='rue_adherent' value=".$object->get_rue_adherent()."></td></tr>
-			<tr><td>CP </td><td><input type='cp_adherent' name='cp_adherent' placeholder='cp_adherent' value=".$object->get_cp_adherent()."></td></tr>
-			<tr><td>Ville</td><td><input type='ville_adherent' name='ville_adherent' placeholder='ville_adherent' value=".$object->get_ville_adherent()."></td></tr>
+			<tr><td>Rue</td><td><input type='text' name='rue_adherent' placeholder='rue_adherent' value='".$object->get_rue_adherent()."'></td></tr>
+
+			<tr><td>CP </td><td><input type='text' name='cp_adherent' placeholder='cp_adherent' value='".$object->get_cp_adherent()."'></td></tr>
+			<tr><td>Ville</td><td><input type='text' name='ville_adherent' placeholder='ville_adherent' value='".$object->get_ville_adherent()."'></td></tr>
 
 			<tr><td><label for='sexe_adherent'>sexe  adherent</label><br /></td>
           <td>  <select name='sexe_adherent' id='sexe_adherent' required>";

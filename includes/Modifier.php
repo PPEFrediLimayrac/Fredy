@@ -55,13 +55,13 @@ $submit = isset($_POST['submit']);
 <?php
 	echo "<form method='post' action='Modifier.php' style='position: center;'><br/>
 	<table>
-		<tr><td>Date</td><td><input type='date' name='datelignefrais'  value=".$object->get_datelignefrais()."></td></tr>
-		<tr><td>Nom trajet</td><td><input type='text' name='trajet_frais'  value=".$object->get_trajet_frais()."></td></tr>
-		<tr><td>Kilomètres parcourus</td><td><input type='number' name='km_frais' value=".$object->get_km_frais()."></td></tr>
+		<tr><td>Date</td><td><input type='date' name='datelignefrais'  value='".$object->get_datelignefrais()."'></td></tr>
+		<tr><td>Nom trajet</td><td><input type='text' name='trajet_frais'  value='".$object->get_trajet_frais()."'></td></tr>
+		<tr><td>Kilomètres parcourus</td><td><input type='number' name='km_frais' value='".$object->get_km_frais()."'></td></tr>
 		<input type='hidden' name='cout_trajet' value=".$object->get_cout_trajet().">
-		<tr><td>Coût péage</td><td><input type='number' name='cout_peage' value=".$object->get_cout_peage()."></td></tr>
+		<tr><td>Coût péage</td><td><input type='number' name='cout_peage' value='".$object->get_cout_peage()."'></td></tr>
 		<tr><td>Coût Hébergement</td><td><input type='number' name='cout_hebergement'value=".$object->get_cout_hebergement()."><br/>
-		<tr><td>Coût repas</td><td><input type='number' name='cout_repas' value=".$object->get_cout_repas()."></td></tr>
+		<tr><td>Coût repas</td><td><input type='number' name='cout_repas' value='".$object->get_cout_repas()."'></td></tr>
 			<input type='hidden' name ='idBordereau' value='".$idBordereau."'>
 			<input type='hidden' name ='annee' value='".$annee."'>
 		<tr><td><input type='submit' name='submit' value='Envoyer le formulaire'></td>

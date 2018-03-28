@@ -1,6 +1,4 @@
 <?php
-
-
 session_start();
 $submit = isset($_POST['submit']) ? $_POST['submit'] : '';
 include ('hashage.php');

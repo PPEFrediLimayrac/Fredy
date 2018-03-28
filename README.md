@@ -1,4 +1,4 @@
-# Fredi
+# Fredy
 
 Projet réalisé par :
 
@@ -20,9 +20,9 @@ Ce site comprend un système de connexion, une gestion des données des adhéren
 <h2> Guide d'installation </h2>
 Pour commencer il faut importer le fichier situé dans le dossier BDD nommé "db_fredi.sql" dans votre base  données.
 
-Il est impératif que le projet parent soit dans un dossier nommé 'fredi'.
+Il est impératif que le projet parent soit dans un dossier nommé 'Fredy'.
 
-Une fois la base de données installée, vous pourrez librement aller sur le site fredi, en localhost. La page d'acceuil est index.php
+Une fois la base de données installée, vous pourrez librement aller sur le site Fredy, en localhost. La page d'acceuil est index.php
 
 Vous pourrez créer un utilisateur en accédant à la page de connexion en cliquant sur l'onglet "Connexion" puis "S'inscrire". Vous devez savoir que le mot de passe sera stocké dans la base de données en suivant une procédure de hashage, vous ne pourrez donc pas créer un Demandeur directement dans la base de données.
 

@@ -10,7 +10,7 @@ class DAO {
       $user = 'root';
       $pass = '';
       $host = 'localhost';
-      $base = 'db_fredi';
+      $base = 'db_fredy';
       $dsn = 'mysql:host=' . $host . ';dbname=' . $base;
       // Création de la connexion
       try {

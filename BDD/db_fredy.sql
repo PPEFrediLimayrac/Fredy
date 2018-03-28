@@ -22,9 +22,9 @@ SET time_zone = "+00:00";
 -- Base de données :  `db_fredi`
 --
 
-DROP DATABASE db_fredi;
-CREATE DATABASE db_fredi;
-USE db_fredi;
+DROP DATABASE IF EXISTS db_fredy;
+CREATE DATABASE db_fredy;
+USE db_fredy;
 
 -- --------------------------------------------------------
 

@@ -18,7 +18,7 @@ Ce site comprend un système de connexion, une gestion des données des adhéren
 
 
 <h2> Guide d'installation </h2>
-Pour commencer il faut importer le fichier situé dans le dossier BDD nommé "db_fredi.sql" dans votre base  données.
+Pour commencer il faut importer le fichier situé dans le dossier BDD nommé "db_fredy.sql" dans votre base  données.
 
 Il est impératif que le projet parent soit dans un dossier nommé 'Fredy'.
 

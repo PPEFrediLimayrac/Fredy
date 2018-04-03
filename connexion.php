@@ -56,9 +56,6 @@ if(isset($_GET['inscription'])){
          
             
         if ($submit) 
- 
-        
-
         {
            
             
@@ -88,7 +85,7 @@ if(isset($_GET['inscription'])){
 
 
 		<a href="mdp_Oublie.php">   Mot de passe oublié ? </a></br>
-	    <a href="inscription.php">   Pas encore inscrit ? </a>
+	    <a href="inscription.php">   Inscription </a>
 	       
 	    
 	  </div>

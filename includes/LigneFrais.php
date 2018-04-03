@@ -14,7 +14,7 @@ class LigneFrais extends LigneFraisDAO{
   private $cout_repas;
   private $id_motif;
   private $id_indemnite;
-
+private $adherent;
   private $id_notedefrais; 
  
 
@@ -27,6 +27,9 @@ class LigneFrais extends LigneFraisDAO{
 
 function get_id_frais() {
     return $this->id_frais;
+  }
+  function get_adherent(){
+    return $this->adherent;
   }
 
 function get_datelignefrais() {
@@ -93,6 +96,9 @@ function get_id_indemnite() {
   }
    function set_cout_hebergement($cout_hebergement) {
      $this->cout_hebergement = $cout_hebergement;
+  }
+  function set_adherent($adherent) {
+     $this->adherent = $adherent;
   }
   function set_cout_repas($cout_repas) {
     $this->cout_repas = $cout_repas;

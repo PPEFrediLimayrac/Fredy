@@ -5,10 +5,12 @@
   include_once "includes\LigneFrais.php";
   include_once "includes\bloque.php";
   include_once "includes\indemnite.php";
+  include_once "includes\adherent.php";
 
   $submit = isset($_POST['submit']) ? $_POST['submit'] : '';
   $lignefrais = new lignefrais();
- 
+ $adherents = new Adherent();
+    $adh = $adherents->findAllByPseudo($_SESSION['pseudo_demandeur']); 
 
   if($submit)
   {
@@ -112,6 +114,7 @@
             <tr>
              
               <th>Date</th>
+              <th>Prénom adhérent</th>
               <th>Trajet</th>   
               <th>Kms parcourus</th>
               <th>Coût Trajet</th>
@@ -138,14 +141,17 @@
                 if(empty($pros['id_bloque']) )
                 {  
                   echo('<tr>
+
                   
                   <td>'.$lignefrais->get_datelignefrais().'</td>
+                  <td>'.$lignefrais->get_adherent().'</td>
                   <td>'.$lignefrais->get_trajet_frais().'</td>
                   <td>'.$lignefrais->get_km_frais().'</td>
                   <td>'.$lignefrais->get_km_frais()*$tarifKm['tarif_kilometrique'].'</td>
                   <td>'.$lignefrais->get_cout_peage().'</td>
                   <td>'.$lignefrais->get_cout_repas().'</td>
                   <td>'.$lignefrais->get_cout_hebergement().'</td>
+
                     <td>'.$total.'</td>
                   <td><a href="includes/Modifier.php?idBordereau='.$lignefrais->get_id_frais().'&annee='.$annee.'"><img src="images/modif.jpg" width="60" height="60"></td>
                   <td><a href="includes/supprimer.php?idBordereau='.$lignefrais->get_id_frais().'&annee='.$annee.'"><img src="images/delete.png" width="60" height="60" style="positio
@@ -156,6 +162,7 @@
                   echo('<tr>
                       
                       <td>'.$lignefrais->get_datelignefrais().'</td>
+                      <td>'.$lignefrais->get_adherent().'</td>
                       <td>'.$lignefrais->get_trajet_frais().'</td>
                       <td>'.$lignefrais->get_km_frais().'</td>
                       <td>'.$lignefrais->get_km_frais()*$tarifKm['tarif_kilometrique'].'</td>

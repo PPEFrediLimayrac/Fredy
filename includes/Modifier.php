@@ -3,6 +3,7 @@
 session_start();
 include_once "LigneFrais.php";
 include_once "NoteDeFrais.php";
+include_once "adherent.php";
 $pseudo = $_SESSION['pseudo_demandeur'];
 $annee = isset($_POST['annee']) ? $_POST['annee'] : '';
 $submit = isset($_POST['submit']) ? $_POST['submit'] : '';
@@ -14,7 +15,9 @@ $cout_peage = isset($_POST['cout_peage']) ? $_POST['cout_peage'] : '';
 $cout_hebergement= isset($_POST['cout_hebergement']) ? $_POST['cout_hebergement'] : '';
 $cout_repas = isset($_POST['cout_repas']) ? $_POST['cout_repas'] : '';
 $idBordereau = isset($_POST['idBordereau']) ? $_POST['idBordereau'] : '';
-
+$adherent = isset($_POST['adherent']) ? $_POST['adherent'] : '';
+ $adherents = new Adherent();
+$adh = $adherents->findAllByPseudo($_SESSION['pseudo_demandeur']);
 $pseudo = $_SESSION['pseudo_demandeur'];
 if(empty($idBordereau)){
 $idBordereau = $_GET['idBordereau'];
@@ -22,6 +25,7 @@ $annee = $_GET['annee'];}
 $object = new LigneFrais();
 $object = $object->findbyID($idBordereau);
 $submit = isset($_POST['submit']);
+
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +60,17 @@ $submit = isset($_POST['submit']);
 	echo "<form method='post' action='Modifier.php' style='position: center;'><br/>
 	<table>
 		<tr><td>Date</td><td><input type='date' name='datelignefrais'  value='".$object->get_datelignefrais()."'></td></tr>
-		<tr><td>Nom trajet</td><td><input type='text' name='trajet_frais'  value='".$object->get_trajet_frais()."'></td></tr>
+		<tr><td>Adhérent</td><td><select name='adherent' id='adherent' required>";
+		foreach($adh as $adherents){
+			if($adherents->get_prenom_adherent() == $object->get_adherent()){
+		echo ' <option selected value='.$adherents->get_prenom_adherent().'>'.$adherents->get_prenom_adherent().'</option>';}
+		else {
+			echo ' <option  value='.$adherents->get_prenom_adherent().'>'.$adherents->get_prenom_adherent().'</option>';
+		}
+		}
+		
+
+		echo "</select></td></tr><tr><td>Nom trajet</td><td><input type='text' name='trajet_frais'  value='".$object->get_trajet_frais()."'></td></tr>
 		<tr><td>Kilomètres parcourus</td><td><input type='number' name='km_frais' value='".$object->get_km_frais()."'></td></tr>
 		<input type='hidden' name='cout_trajet' value=".$object->get_cout_trajet().">
 		<tr><td>Coût péage</td><td><input type='number' name='cout_peage' value='".$object->get_cout_peage()."'></td></tr>
@@ -71,7 +85,7 @@ $submit = isset($_POST['submit']);
 
 
 	if ($submit){
-	$object->update($datelignefrais ,$trajet_frais, $km_frais , $cout_trajet, $cout_peage, $cout_hebergement, $cout_repas,$idBordereau);
+	$object->update($datelignefrais ,$adherent, $trajet_frais, $km_frais , $cout_trajet, $cout_peage, $cout_hebergement, $cout_repas,$idBordereau);
 	header('Location: ../Bordereau.php?annee='.$annee.'');
 	}
 ?>

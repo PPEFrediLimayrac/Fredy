@@ -22,6 +22,10 @@ SET time_zone = "+00:00";
 -- Base de données :  `db_fredy`
 --
 
+DROP DATABASE IF EXISTS db_fredy;
+CREATE DATABASE db_fredy CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE db_fredy;
+
 -- --------------------------------------------------------
 
 --

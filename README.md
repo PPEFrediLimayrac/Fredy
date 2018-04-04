@@ -19,7 +19,7 @@ Ce site comprend un système de connexion, une gestion des données des adhéren
 
 <h2> Guide d'installation </h2>
 
-Cf le wiki "guide d'utilisation pour fredy".
+Cf le <a href="https://github.com/PPEFrediLimayrac/Fredy/wiki/Guide-d'installation-pour-Fredy">wiki "guide d'utilisation pour fredy"</a>.
 
 <h2> Demandeur </h2>
 Nous considérons qu'un utilisateur inscrit est automatiquement un demandeur. Pour pouvoir gérer un adhérent il est demandé de le rajouter par le formulaire apparaissant sur la page "profilUtilisateur.php"

@@ -26,5 +26,5 @@ Nous considérons qu'un utilisateur inscrit est automatiquement un demandeur. Po
 
 <h2> Guide ajout et modification </h2>
 
-Cf les wikis "ajout" et "modification".
+Cf les wikis <a href="https://github.com/PPEFrediLimayrac/Fredy/wiki/Guide-d'ajout">"ajout"</a> et <a href="https://github.com/PPEFrediLimayrac/Fredy/wiki/Guide-de-modification-tarif-kilom%C3%A9trique"> "modification"</a>.
 

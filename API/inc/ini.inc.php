@@ -5,7 +5,7 @@
 // fichier commun inclus dans toute les pages
 
 // Racine du site en absolu
-//define('ROOT', dirname(dirname(__FILE__)));  // Racine du site en absolu
+define(ROOT, dirname(dirname(__FILE__)));  // Racine du site en absolu
 require_once "../src/config/init.php";
 require_once SRC . DS . 'DAO' . DS . 'DemandeurDAO.php';
 require_once SRC . DS . 'models' . DS . 'Demandeur.php';
@@ -16,6 +16,7 @@ require_once SRC . DS . 'framework' . DS . 'Auth.php';
 
 // Inclut les fonctions
 require_once ROOT. DS . "API". DS ."inc". DS ."fonctions.inc.php";
+var_dump(ROOT);
 
 // Inclut les users à authentifier
 //require_once ROOT."API/inc/utilisateurs.inc.php";

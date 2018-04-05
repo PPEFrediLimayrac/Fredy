@@ -3,7 +3,7 @@
 // top14server - Serveur web service RESTful
 //
 // Fonctions pour l'application
-
+include_once 'ini.inc.php';s
 /**
  * Construit une chaîne JSON à partir d'un tableau PHP
  * @param string $message

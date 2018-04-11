@@ -12,20 +12,22 @@ mb_internal_encoding('UTF-8');
 date_default_timezone_set('Europe/Paris');
 
 // Définition des chemins des fichiers
-define('ROOT', dirname(dirname(dirname(__FILE__))));  // Racine du site en absolu
+define('ROOT', dirname(dirname(dirname(__FILE__)))); // Racine du site en absolu
 // TODO : il y a dans la doc. un second paramètre pour indiquer que l'on remonte MAIS ça ne fonctionne pas en PHP5, il faut passer à PHP7
 
 define('DS', DIRECTORY_SEPARATOR);   // Séparateur de dossier (dépend de l'OS)
-//define('SRC', ROOT . DS . 'Fredy');  // Dossier Fredy en absolu
+define('SRC', ROOT . DS . 'Fredy');  // Dossier Fredy en absolu
+
+
 // Définition des URLs
 define('BASEURL', dirname($_SERVER['SCRIPT_NAME']));
-define('CSS', BASEURL . '/css');
+define('CSS', BASEURL . '/style.css');
 define('JS', BASEURL . '/js');
 
 // Paramètres de l'application
-define('APPLINAME', 'Blog MVC');
+define('APPLINAME', 'Fredy');
 
 // Gestion de la session
-require_once SRC . DS . 'includes' . DS . 'Demandeur.php';  // Obligatoire pour tous les objets susceptibles d'être sérialisés dans la session
-session_start();
-session_name('BASEL');
+//require_once SRC . DS . 'includes' . DS . 'Demandeur.php';  // Obligatoire pour tous les objets susceptibles d'être sérialisés dans la session
+//session_start();
+//session_name('BASEL');

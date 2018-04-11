@@ -1,5 +1,6 @@
 <?php 
-    session_start(); // zerjkohihfjiohfjkhjk
+    session_start(); 
+    include_once "includes/init.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +21,7 @@
 
       </div>
         <?php
-          include('includes/menuprincipal.php');
+          include('includes/menuPrincipal.php');
         ?>
                
       <div class="clr"></div>

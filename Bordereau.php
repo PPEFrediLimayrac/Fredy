@@ -136,7 +136,7 @@
               foreach ($rows as $lignefrais) 
               {
                // $abcd = $lignefrais->get_id_frais();
-                $total =$lignefrais->get_trajet_frais()+($lignefrais->get_km_frais()*$tarifKm['tarif_kilometrique'])+$lignefrais ->get_cout_trajet()+$lignefrais->get_cout_peage()+$lignefrais->get_cout_repas()+$lignefrais->get_cout_hebergement();
+                $total =($lignefrais->get_km_frais()*$tarifKm['tarif_kilometrique'])+$lignefrais ->get_cout_trajet()+$lignefrais->get_cout_peage()+$lignefrais->get_cout_repas()+$lignefrais->get_cout_hebergement();
 
                 if(empty($pros['id_bloque']) )
                 {  

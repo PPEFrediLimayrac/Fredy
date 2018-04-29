@@ -21,11 +21,13 @@ define('SRC', ROOT . DS . 'Fredy');  // Dossier Fredy en absolu
 
 // Définition des URLs
 define('BASEURL', dirname($_SERVER['SCRIPT_NAME']));
+var_dump(BASEURL);
 define('CSS', BASEURL . '/style.css');
 define('JS', BASEURL . '/js');
 
 // Paramètres de l'application
 define('APPLINAME', 'Fredy');
+echo(APPLINAME.'</br>');
 
 // Gestion de la session
 //require_once SRC . DS . 'includes' . DS . 'Demandeur.php';  // Obligatoire pour tous les objets susceptibles d'être sérialisés dans la session
